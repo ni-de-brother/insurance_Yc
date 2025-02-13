@@ -1,0 +1,17 @@
+xgb_params = {
+    'colsample_bytree': 0.1,          # 第一次 AUC = 0.8321
+    'learning_rate': 0.01567,          # 然后 colsample_bytree:0.62 -> 0.48
+    'max_depth': 10,                   # max_depth:12 ->10
+    'min_child_weight': 6,             # n_estimators:2500 ->3000
+    'max_bin': 3500,                   #  第二次 AUC = 0.8364
+    'n_estimators': 3000,              # 然后 colsample_bytree:0.48 -> 0.42
+    'eval_metric': 'auc',
+    'tree_method':'hist',  # GPU加速
+    'device':'cuda'                   # max_depth:12 ->8
+    }                                  # n_estimators:3000 ->3200
+                                       # 第三次 AUC = 0.8367
+                                       # 然后 colsample_bytree:0.48 -> 0.35
+                                       # 第四次 AUC = 0.8371
+                                       #然后
+                                       # colsample_bytree:0.35-> 0.1
+                                       # 第五次  AUC = 0.8370
